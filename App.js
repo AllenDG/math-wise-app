@@ -1,8 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import Layout from './app/pages/Layout'
+
+import React from 'react';
+import AuthStack from './auth/AuthStack'; // Import your AuthStack component
 
 export default function App() {
   return (
-    <Layout/>
+    <>
+
+      <AuthStack /> 
+      
+    </>
   );
-};
+}
