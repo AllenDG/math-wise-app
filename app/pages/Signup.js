@@ -1,37 +1,55 @@
 import React from 'react';
-import { Text, StyleSheet, View, Image, TouchableOpacity, SafeAreaView, TextInput } from 'react-native'; 
+import { Text, StyleSheet, View, Image, TouchableOpacity, SafeAreaView, TextInput, nav, ScrollView } from 'react-native'; 
 
-import Lock from '../../assets/images/login.png'; 
+
+
+import Sign from '../../assets/images/signup.png'
 import Facebook from '../../assets/images/facebook.png';
 import Google from '../../assets/images/google.png';
 import Twitter from '../../assets/images/twitter.png';
-import InputField from '../components/inputField';
+
 
 
 const Signup = ({navigation}) => {
+
+ 
+  
   return (
+    <ScrollView>
     <SafeAreaView style={{flex:1, justifyContent:'center'}}>
     <View style={styles.container}>
     <View style={styles.headerContainer}>
 
+      <Image source={Sign} style={styles.img} />
 
     </View>
-
+   
       <Text style={styles.customText}>Register</Text>
-      
+    
+      <View style={{flexDirection:'row', borderBottomColor:'#ccc', borderBottomWidth:1, paddingBottom:8, marginBottom:25, marginLeft:10,marginRight:10}}>
+
+    <TextInput placeholder='Given Name' keyboardType='default' style={styles.email}></TextInput>
+    </View>
 
     <View style={{flexDirection:'row', borderBottomColor:'#ccc', borderBottomWidth:1, paddingBottom:8, marginBottom:25, marginLeft:10,marginRight:10}}>
+
+<TextInput placeholder='Last Name' keyboardType='default' style={styles.email}></TextInput>
+</View>
+
+        <View style={{flexDirection:'row', borderBottomColor:'#ccc', borderBottomWidth:1, paddingBottom:8, marginBottom:25, marginLeft:10,marginRight:10}}>
 
     <TextInput placeholder='Enter Email' keyboardType='email-address' style={styles.email}></TextInput>
     </View>
 
-    
-   <InputField label={'Full Name'}/> 
+    <View style={{flexDirection:'row', borderBottomColor:'#ccc', borderBottomWidth:1, paddingBottom:8, marginBottom:25, marginLeft:10,marginRight:10}}>
 
+    <TextInput placeholder='Enter Password' secureTextEntry={true} style={styles.password}></TextInput>
 
+  
+    </View>
 
     <TouchableOpacity style={styles.loginBtn}  onPress={() => {}}>
-        <Text style={styles.textBtn}>Sign up</Text>
+        <Text style={styles.textBtn}>Sign In</Text>
     </TouchableOpacity> 
 
     <Text style={{textAlign:'center', color:'#666', marginBottom:30}}>Or, login with ...</Text>
@@ -51,14 +69,15 @@ const Signup = ({navigation}) => {
     </View>
 
     <View style={{flexDirection:'row', justifyContent:'center'}}>
-    <Text>Already registered?</Text>
+    <Text>Have an Account?</Text>
     <TouchableOpacity onPress={() => navigation.goBack()}>
     <Text style={{color:'#001FDB',fontWeight:'700'}}> Login</Text>
     </TouchableOpacity>
     </View>
-
     </View>
+    
       </SafeAreaView>
+      </ScrollView>
   );
 };
 
@@ -72,7 +91,12 @@ const styles = StyleSheet.create({
     paddingHorizontal:25,
   },
 
-
+  img: {
+    marginTop: 50,
+    height: 300,
+    width: 300,
+    marginBottom: 45,
+  },
   customText: {
     fontSize: 28,
     fontWeight: '500',
